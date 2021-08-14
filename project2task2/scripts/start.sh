@@ -1,0 +1,12 @@
+#!/bin/bash
+
+HOME_PATH="/home"
+
+PROJETC_PATH="project2task2"
+CODE_PATH="$HOME_PATH/$PROJETC_PATH/"
+
+SOURCE_FILE="raw_data.py"
+
+SOURCE_PATH="$CODE_PATH/$SOURCE_FILE"
+
+python3 $SOURCE_PATH
