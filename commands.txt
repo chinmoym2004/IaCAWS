@@ -27,3 +27,11 @@ aws cloudformation create-stack --stack-name chinmoy-project2-task1 --template-b
 
 aws cloudformation delete-stack --stack-name chinmoy-project2-task1
 
+
+
+Connect 2 EC2 :Update ubutun 
+sudo apt upgrade && sudo apt install git && sudo apt install python3
+sudo apt install python3-pip
+
+
+
