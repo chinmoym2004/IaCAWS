@@ -1,0 +1,29 @@
+Commands : 
+
+
+Test Each Individual :
+
+aws cloudformation create-stack --stack-name chinmoy-project2-EC2 --template-body file://task1_EC2.json
+
+aws cloudformation delete-stack --stack-name chinmoy-project2-stack
+
+aws cloudformation create-stack --stack-name chinmoy-project2-dynamo --template-body file://task1_dynamo.json
+
+aws cloudformation delete-stack --stack-name chinmoy-project2-dynamo
+
+
+aws cloudformation create-stack --stack-name chinmoy-project2-kinesis --template-body file://task1_kinesis.json
+
+aws cloudformation delete-stack --stack-name chinmoy-project2-kinesis
+
+
+aws cloudformation create-stack --stack-name chinmoy-project2-sns --template-body file://task1_sns.json
+
+aws cloudformation delete-stack --stack-name chinmoy-project2-sns
+
+Final Task 1 :
+
+aws cloudformation create-stack --stack-name chinmoy-project2-task1 --template-body file://task1.json
+
+aws cloudformation delete-stack --stack-name chinmoy-project2-task1
+
