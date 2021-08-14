@@ -1,0 +1,66 @@
+{
+  "Resources":{
+      "Project2VPC": {
+          "Type": "AWS::EC2::VPC",
+          "Properties": {
+          "CidrBlock": "10.0.0.0/16",
+          "EnableDnsHostnames" : "true", 
+          "EnableDnsSupport" : "true",
+          "Tags" : [ {"Key" : "Name", "Value" : "Project2VPC"} ]
+          }
+      },
+      "Project2Subnet": {
+          "Type": "AWS::EC2::Subnet",
+          "Properties": {
+              "VpcId": {
+                  "Ref": "Project2VPC"
+              },
+              "Tags" : [ {"Key" : "Name", "Value" : "Project2Subnet"} ],
+              "CidrBlock" : "10.0.1.0/24",
+              "AvailabilityZone" : "us-east-1a",
+              "MapPublicIpOnLaunch" : "true"
+          }
+      },
+      "Project2SG": {
+          "Type": "AWS::EC2::SecurityGroup",
+          "Properties": {
+              "SecurityGroupIngress" : [{
+                  "IpProtocol" : "tcp",
+                  "FromPort" : 80,
+                  "ToPort" : 80,
+                  "CidrIp" : "0.0.0.0/0"
+              },
+              {
+                  "IpProtocol" : "tcp",
+                  "FromPort" : 22,
+                  "ToPort" : 22,
+                  "CidrIp" : "0.0.0.0/0"
+              }],
+              "VpcId": {
+                  "Ref": "Project2VPC"
+              },
+              "GroupDescription": "Allows HTTP and SSH",
+              "Tags" : [ {"Key" : "Name", "Value" : "Project2SG"} ]
+          }
+      },
+      "Project2EC2": {
+          "Type": "AWS::EC2::Instance",
+          "Properties": {
+              "InstanceType" : "t2.micro",
+              "ImageId" : "ami-09e67e426f25ce0d7",
+              "KeyName" : "aws_educate",
+              "NetworkInterfaces": [
+                  {
+                      "SubnetId": {
+                          "Ref": "Project2Subnet"
+                      },
+                      "GroupSet": [{ "Ref" : "Project2SG" }],
+                      "DeviceIndex": "0",
+                      "DeleteOnTermination": "true"
+                  }
+              ],
+              "Tags" : [ {"Key" : "Name", "Value" : "Project2"} ]
+          }
+      }
+  }
+}

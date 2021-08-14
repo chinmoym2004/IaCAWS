@@ -1,0 +1,16 @@
+{
+    "Resources":{
+        "Project2Stream": { 
+            "Type": "AWS::Kinesis::Stream", 
+            "Properties": {
+                "Name": "m03p02_raw_data_stream", 
+                "RetentionPeriodHours" : 24, 
+                "ShardCount": 1,
+                "Tags": [ {
+                    "Key": "Environment", 
+                    "Value": "development" 
+                } ] 
+            } 
+        }
+    }
+}

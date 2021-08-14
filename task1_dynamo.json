@@ -1,0 +1,35 @@
+{
+   "Resources":{
+      "Project2DynamoDB" : {
+            "Type" : "AWS::DynamoDB::Table",
+            "Properties" : {
+                "AttributeDefinitions" : [
+                    {
+                        "AttributeName" : "deviceid",
+                        "AttributeType" : "S"
+                    }, 
+                    {
+                        "AttributeName" : "timestamp",
+                        "AttributeType" : "S"
+                    }
+                 ],
+                "KeySchema" : [
+                    {
+                        "AttributeName": "deviceid",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "timestamp",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                "TableName" : "m03p02_anomaly_data",
+                "Tags" : [ {"Key" : "Name", "Value" : "Project2DynamoDB"} ],
+                "ProvisionedThroughput": {
+                    "ReadCapacityUnits": 5,
+                    "WriteCapacityUnits": 5
+                }
+            }
+        }
+   }
+}

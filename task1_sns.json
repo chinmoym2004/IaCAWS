@@ -1,0 +1,19 @@
+{
+  "Resources":{
+        "Project2Topic":
+        {
+            "Type": "AWS::SNS::Topic",
+            "Properties":
+            {
+                "DisplayName": "Project2Topic",
+                "TopicName": "m03p02_anomaly_alerts",
+                "Subscription":[
+                    {
+                      "Protocol": "email",
+                      "Endpoint": "chinmoym2004@gmail.com"
+                    } 
+                ]
+            }
+        }
+    }
+}
